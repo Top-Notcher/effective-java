@@ -8,7 +8,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class SpellCheckerTest {
     @Test
     void isValid() {
-        SpellChecker spellChecker = new SpellChecker(new DefaultDictionary());
+//        SpellChecker spellChecker = new SpellChecker(DefaultDictionary::new);
+        SpellChecker spellChecker = new SpellChecker(DictionaryFactory::get);
         spellChecker.isValid("test");
     }
 }
