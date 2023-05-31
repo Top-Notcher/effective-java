@@ -1,5 +1,7 @@
 package com.example.effectivejava.item06;
 
+import java.awt.*;
+
 public class Sum {
     private static long sum() {
         Long sum = 0L;

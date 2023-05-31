@@ -1,7 +1,5 @@
 package com.example.effectivejava.item02.hierarchicalbuilder;
 
-import lombok.ToString;
-
 // 코드 2-6 칼초네 피자 - 계층적 빌더를 활용한 하위 클래스
 public class Calzone extends Pizza{
     private final boolean sauceInside;

@@ -13,6 +13,8 @@ public class ElvisReflection {
             Elvis elvis1 = defaultConstructor.newInstance();
             Elvis elvis2 = defaultConstructor.newInstance();
             // 싱글톤이 깨져버림
+            System.out.println(elvis1 == elvis2);           // false
+            System.out.println(elvis1 == Elvis.INSTANCE);   // false
         } catch (NoSuchMethodException | InvocationTargetException | InstantiationException | IllegalAccessException e) {
             e.printStackTrace();
         }

@@ -1,9 +1,5 @@
 package com.example.effectivejava.item02.builder;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-
 // 빌더 패턴 - 점층적 생성자 패턴과 자바빈즈 패턴의 장점만 취했다
 //@Builder
 //@AllArgsConstructor(access = AccessLevel.PRIVATE)

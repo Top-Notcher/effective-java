@@ -21,5 +21,6 @@ public class MetaElvis<T> { // 인스턴스 scope
     public static void main(String[] args) {
         MetaElvis<String> elvis1 = MetaElvis.getInstance();
         MetaElvis<Integer> elvis2 = MetaElvis.getInstance();
+
     }
 }
