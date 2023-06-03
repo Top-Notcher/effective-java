@@ -6,14 +6,14 @@ import java.util.WeakHashMap;
 
 public class PostRepository {
 
-    private Map<CacheKey, Post> cache;
+    private Map<Integer, Post> cache;
 
     public PostRepository() {
         this.cache = new HashMap<>();
 //        this.cache = new WeakHashMap<>();
     }
 
-    public Post getPostById(CacheKey key) {
+    public Post getPostById(Integer key) {
 
         if ( cache.containsKey(key)) {
             return cache.get(key);
@@ -25,7 +25,7 @@ public class PostRepository {
         }
     }
 
-    public Map<CacheKey, Post> getCache() {
+    public Map<Integer, Post> getCache() {
         return cache;
     }
 }
