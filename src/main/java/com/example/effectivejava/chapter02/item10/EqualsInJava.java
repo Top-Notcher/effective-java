@@ -17,8 +17,8 @@ public class EqualsInJava extends Object{
         System.out.println(timestamp.equals(date)); // false
 
         // 일관성 위배 가능성 있음. p1
-//        URL google1 = new URL("https", "about.google", "/products/");
-//        URL google2 = new URL("https", "about.google", "/products/");
-//        System.out.println(google1.equals(google2));
+        URL google1 = new URL("https", "about.google", "/products/");
+        URL google2 = new URL("https", "about.google", "/products/");
+        System.out.println(google1.equals(google2));
     }
 }

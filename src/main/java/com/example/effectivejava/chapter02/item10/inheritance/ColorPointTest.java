@@ -1,5 +1,6 @@
 package com.example.effectivejava.chapter02.item10.inheritance;
 
+import com.example.effectivejava.chapter02.item10.Color;
 import com.example.effectivejava.chapter02.item10.Point;
 
 import java.util.Set;
@@ -18,7 +19,8 @@ public class ColorPointTest {
 
     public static void main(String[] args) {
         Point p1 = new Point(1, 0);
-        Point p2 = new CounterPoint(1, 0);
+//        Point p2 = new ColorPoint(1, 0, Color.RED);
+        Point p2 = new com.example.effectivejava.chapter02.item10.composition.ColorPoint(1, 0, Color.RED).asPoint();
 
         // true를 출력한다.
         System.out.println(onUnitCircle(p1));
