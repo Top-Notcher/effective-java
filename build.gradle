@@ -20,6 +20,11 @@ dependencies {
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
 
+    // https://mvnrepository.com/artifact/com.google.auto.value/auto-value-annotations
+    implementation group: 'com.google.auto.value', name: 'auto-value-annotations', version: '1.9'
+    // https://mvnrepository.com/artifact/com.google.auto.value/auto-value
+    implementation group: 'com.google.auto.value', name: 'auto-value', version: '1.9'
+
 }
 
 tasks.named('test') {

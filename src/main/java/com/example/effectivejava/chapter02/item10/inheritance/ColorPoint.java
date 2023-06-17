@@ -38,9 +38,9 @@ public class ColorPoint extends Point {
 
     public static void main(String[] args) {
         // 첫 번째 equals 메서드(코드 10-2)는 대칭성을 위배한다. (57쪽)
-//        Point p = new Point(1, 2);
-//        ColorPoint cp = new ColorPoint(1, 2, Color.RED);
-//        System.out.println(p.equals(cp) + " " + cp.equals(p));  // true false
+        Point p = new Point(1, 2);
+        ColorPoint cp = new ColorPoint(1, 2, Color.RED);
+        System.out.println(p.equals(cp) + " " + cp.equals(p));  // true false
 
         // 두 번째 equals 메서드(코드 10-3)는 추이성을 위배한다. (57쪽)
         ColorPoint p1 = new ColorPoint(1, 2, Color.RED);
