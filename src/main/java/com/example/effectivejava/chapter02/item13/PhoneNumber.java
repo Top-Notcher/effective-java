@@ -13,6 +13,10 @@ public class PhoneNumber implements Cloneable{
         this.lineNum = rangeChke(lineNum, 9999, "line num");
     }
 
+    public PhoneNumber(PhoneNumber phoneNumber) {
+        this(phoneNumber.areaCode, phoneNumber.prefix, phoneNumber.lineNum);
+    }
+
     private static short rangeChke(int val, int max, String arg) {
         if(val < 0 || val > max) {
             throw new IllegalArgumentException(arg + ": " + val);
@@ -60,4 +64,6 @@ public class PhoneNumber implements Cloneable{
     public int hashCode() {
         return Objects.hash(areaCode, prefix, lineNum);
     }
+
+
 }

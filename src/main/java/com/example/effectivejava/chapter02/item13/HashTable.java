@@ -59,6 +59,7 @@ public class HashTable implements Cloneable {
         try {
             result = (HashTable) super.clone();
             result.buckets = new Entry[this.buckets.length];
+//            result.buckets = creataNewBuckets();
             for (int i = 0; i < this.buckets.length; i++) {
                 if(buckets[i] != null) {
                     result.buckets[i] = this.buckets[i].deepCopy(); // p83, deep copy
@@ -69,6 +70,11 @@ public class HashTable implements Cloneable {
             throw new AssertionError();
         }
     }
+
+    // 재정의할 수 있는 메서드 사용 X -> 하위 클래스에서 오버라이딩하면 동작이 변경될 수 있음
+//    protected Entry[] creataNewBuckets() {
+//        throw new AssertionError();
+//    }
 
     public static void main(String[] args) {
         HashTable hashTable = new HashTable();
