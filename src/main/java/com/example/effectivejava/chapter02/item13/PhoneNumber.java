@@ -8,16 +8,16 @@ public class PhoneNumber implements Cloneable{
     private final short areaCode, prefix, lineNum;
 
     public PhoneNumber(int areaCode, int prefix, int lineNum) {
-        this.areaCode = rangeChke(areaCode, 999, "area code");
-        this.prefix = rangeChke(prefix, 999, "prefix");
-        this.lineNum = rangeChke(lineNum, 9999, "line num");
+        this.areaCode = rangeCheck(areaCode, 999, "area code");
+        this.prefix = rangeCheck(prefix, 999, "prefix");
+        this.lineNum = rangeCheck(lineNum, 9999, "line num");
     }
 
     public PhoneNumber(PhoneNumber phoneNumber) {
         this(phoneNumber.areaCode, phoneNumber.prefix, phoneNumber.lineNum);
     }
 
-    private static short rangeChke(int val, int max, String arg) {
+    private static short rangeCheck(int val, int max, String arg) {
         if(val < 0 || val > max) {
             throw new IllegalArgumentException(arg + ": " + val);
         }
