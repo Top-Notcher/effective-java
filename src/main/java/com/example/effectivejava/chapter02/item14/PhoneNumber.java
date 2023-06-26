@@ -1,7 +1,7 @@
 package com.example.effectivejava.chapter02.item14;
 
-import java.util.Comparator;
-import java.util.Objects;
+import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
 
 // PhoneNumber를 비교할 수 있게 만든다. (91-92쪽)
 public class PhoneNumber implements Cloneable, Comparable<PhoneNumber>{
@@ -11,6 +11,18 @@ public class PhoneNumber implements Cloneable, Comparable<PhoneNumber>{
         this.areaCode = rangeCheck(areaCode, 999, "area code");
         this.prefix = rangeCheck(prefix, 999, "prefix");
         this.lineNum = rangeCheck(lineNum, 9999, "line num");
+    }
+
+    public short getAreaCode() {
+        return areaCode;
+    }
+
+    public short getPrefix() {
+        return prefix;
+    }
+
+    public short getLineNum() {
+        return lineNum;
     }
 
     private static short rangeCheck(int val, int max, String arg) {
@@ -42,27 +54,42 @@ public class PhoneNumber implements Cloneable, Comparable<PhoneNumber>{
     }
 
     // 코드 14-2 기본 타입 필드가 여럿일 때의 비교자 (91쪽)
-    @Override
-    public int compareTo(PhoneNumber pn) {
-        int result = Short.compare(areaCode, pn.areaCode);
-        if(result == 0) {
-            result = Short.compare(prefix, pn.prefix);
-            if(result == 0) {
-                result = Short.compare(lineNum, pn.lineNum);
-            }
-        }
-        return result;
-    }
-
-    // 코드 14-3 비교자 생성 메서드를 활용한 비교자(92쪽)
-//    private static final Comparator<PhoneNumber> COMPARATOR =
-//            Comparator.comparingInt((PhoneNumber pn) -> pn.areaCode)
-//                    .thenComparingInt(pn -> pn.prefix)
-//                    .thenComparingInt(pn -> pn.lineNum);
-//
+//    @Override
 //    public int compareTo(PhoneNumber pn) {
-//        return COMPARATOR.compare(this, pn);
+//        int result = Short.compare(areaCode, pn.areaCode);
+//        if(result == 0) {
+//            result = Short.compare(prefix, pn.prefix);
+//            if(result == 0) {
+//                result = Short.compare(lineNum, pn.lineNum);
+//            }
+//        }
+//        return result;
 //    }
 
+    // 코드 14-3 비교자 생성 메서드를 활용한 비교자(92쪽)
+    private static final Comparator<PhoneNumber> COMPARATOR =
+            Comparator.comparingInt((PhoneNumber pn) -> pn.areaCode)
+                    .thenComparingInt(PhoneNumber::getPrefix)
+                    .thenComparingInt(PhoneNumber::getLineNum); // 성능 10프로가 느리다
+
+    @Override
+    public int compareTo(PhoneNumber pn) {
+        return COMPARATOR.compare(this, pn);
+    }
+
+    private static PhoneNumber randomPhoneNumber() {
+        Random rnd = ThreadLocalRandom.current();
+        return new PhoneNumber((short) rnd.nextInt(1000),
+                                (short) rnd.nextInt(1000),
+                                (short) rnd.nextInt(10000));
+    }
+
+    public static void main(String[] args) {
+        Set<PhoneNumber> s = new TreeSet<>();
+        for (int i = 0; i < 10; i++ ){
+            s.add(randomPhoneNumber());
+        }
+        System.out.println(s);
+    }
 
 }
