@@ -1,4 +1,4 @@
-package com.example.effectivejava.chapter04.item17;
+package com.example.effectivejava.chapter04.item17.part1;
 
 public final class Person {
     private final Address address;  // address가 가진 정보들 까지 final이 아니다.

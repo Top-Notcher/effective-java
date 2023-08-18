@@ -1,4 +1,4 @@
-package com.example.effectivejava.chapter04.item17;
+package com.example.effectivejava.chapter04.item17.part2;
 
 import com.example.effectivejava.chapter04.item16.point.method.Point;
 

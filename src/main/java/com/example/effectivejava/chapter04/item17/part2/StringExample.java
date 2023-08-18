@@ -1,4 +1,4 @@
-package com.example.effectivejava.chapter04.item17;
+package com.example.effectivejava.chapter04.item17.part2;
 
 public class StringExample {
     public static void main(String[] args) {

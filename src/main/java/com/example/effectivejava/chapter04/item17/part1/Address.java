@@ -1,4 +1,4 @@
-package com.example.effectivejava.chapter04.item17;
+package com.example.effectivejava.chapter04.item17.part1;
 
 public class Address {
     private String zipCode;
