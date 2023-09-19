@@ -14,6 +14,8 @@ public class Box<E extends Number> {
     public static void main(String[] args) {
         Box<Integer> box = new Box<>();
         box.add(10);
+        System.out.println(box.get() * 100);
+
         printBox(box);
     }
 
