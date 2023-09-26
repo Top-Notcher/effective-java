@@ -6,11 +6,11 @@ import java.util.List;
 public class IntegerToString {
 
     public static void main(String[] args) {
-        // 공변
+        // 공변 : 같이 변한다.
         Object[] anything = new String[10];
         anything[0] = 1;    // 잘못된 동작이지만 컴파일러가 잡지 못한다. - 런타임 에러
 
-        // 불공변
+        // 불공변 : 같이 변하지 않는다.
         List<String> names = new ArrayList<>();
 //        List<Object> objects = names; // 컴파일 에러.
 
