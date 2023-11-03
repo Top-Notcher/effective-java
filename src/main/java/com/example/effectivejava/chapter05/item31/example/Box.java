@@ -1,9 +1,13 @@
 package com.example.effectivejava.chapter05.item31.example;
 
 public class Box<T extends Comparable<T>> implements Comparable<Box<T>> {
-    protected final T value;
+    protected T value;
 
     public Box(T value) {
+        this.value = value;
+    }
+
+    public void change(T value) {
         this.value = value;
     }
 
